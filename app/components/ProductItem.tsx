@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { Product } from '../interfaces/Product';
 
-type ProductItemProps = {
+type Props = {
   product: Product;
 };
 
-export const ProductItem = ({ product }: ProductItemProps) => {
+export const ProductItem = ({ product }: Props) => {
   const {
     Image: imageUrl,
     Name,

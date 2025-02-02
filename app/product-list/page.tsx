@@ -4,27 +4,10 @@ import { Searchbar } from '../components/Searchbar';
 import { fetchData } from '../api/fetchData';
 import { Pagination } from '../components/Pagination';
 import { SearchParams } from '../interfaces/SearchParams';
-// import { Product } from '../interfaces/Product';
-
 
 type Props = {
   searchParams: Promise<SearchParams>
 };
-// const fakeData: Product[] = [
-//   { Id: 2,
-//     Name: "jhgjh",
-//     ProductPrice: 300,
-//     Image: "",
-//     Country: JSON.stringify(['us']),
-//     Category: "kjhk",
-//     Status: "",}
-// ]
-// const fakePagination = {
-//   CurrentPage:2,
-//   ItemsPerPage: 3,
-//   NumberOfPages: 2,
-//   TotalItemsCount: 5,
-// }
 
 export default async function ProductListPage({ searchParams }: Props) {
  const query = await searchParams;
@@ -42,9 +25,7 @@ export default async function ProductListPage({ searchParams }: Props) {
 
       <Suspense fallback={null}>
         <ProductTable products={serverData.Items} />
-        {/* <ProductTable products={ fakeData} /> */}
         <Pagination paginationInfo={serverData.Pagination} />
-        {/* <Pagination paginationInfo={fakePagination} /> */}
       </Suspense>
     </main>
   );
