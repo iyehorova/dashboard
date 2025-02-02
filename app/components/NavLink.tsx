@@ -8,21 +8,19 @@ interface NavLinkProps extends LinkProps {
   children: React.ReactNode;
 }
 
-export const NavLink = ({
-  styles='',
-  children,
-  ...rest
-}: NavLinkProps) => {
+export const NavLink = ({ styles = '', children, ...rest }: NavLinkProps) => {
   const pageUrl = useGetUrl();
   const isActive = pageUrl === rest.href;
 
   return (
     <Link
       {...rest}
-      className={clsx({
-        'text-yellow':
-          isActive,
-      }, styles)}
+      className={clsx(
+        {
+          'text-yellow': isActive,
+        },
+        styles,
+      )}
     >
       {children}
     </Link>

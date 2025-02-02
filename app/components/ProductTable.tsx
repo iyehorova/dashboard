@@ -1,28 +1,41 @@
+import { ProductItem } from './ProductItem';
+import { Product } from '../interfaces/Product';
+
 const tableHeaders = [
   'image',
   'name',
+  'category',
   'price',
-  'company',
+  'country',
   'marketplace status',
   'action',
 ];
 
-export const ProductTable = ({}) => {
+type Props = {
+  products: Product[];
+};
+
+export const ProductTable = ({ products }: Props) => {
   return (
-    <table className="my-[30px] w-full font-inherit ">
+    <table className="font-inherit mt-[30px] w-full">
       <thead>
         <tr className="h-[60px] bg-dark-grey text-white">
           {tableHeaders.map((header, i) => (
             <th
               key={i}
-              className="border border-grey pl-[30px] text-left text-input-title font-normal font-inherit capitalize"
+              className="font-inherit border border-grey pl-0 text-center text-input-title font-normal capitalize xl:pl-[30px] xl:text-left"
             >
               {header}
             </th>
           ))}
         </tr>
       </thead>
-      <tbody></tbody>
+
+      <tbody>
+        {products.map(product => (
+          <ProductItem product={product} key={product.Id} />
+        ))}
+      </tbody>
     </table>
   );
 };

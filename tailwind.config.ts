@@ -6,7 +6,8 @@ export default {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  plugins: [ ],
+  plugins: [],
+
   theme: {
     extend: {
       colors: {
@@ -25,8 +26,13 @@ export default {
         additional: '13px',
       },
       fontFamily: {
-        'inherit': 'inherit',
-      }
+        inherit: 'inherit',
+      },
+      screens: {
+        md: '1024px',
+        lg: '1280px',
+        xl: '1920px',
+      },
     },
   },
 } satisfies Config;
