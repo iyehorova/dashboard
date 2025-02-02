@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dashboard test task
+Deploy: [https://dashboard-gilt-pi.vercel.app/](https://dashboard-gilt-pi.vercel.app/)
 
-## Getting Started
+This project is built using Next.js 15 with Server-Side Rendering (SSR). It provides a structured and efficient way to fetch, display, and filter data while maintaining state through URL parameters.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Data Fetching from Server:** The application retrieves data dynamically from the server.
+
+- **Environment Variables:** The API URL and other configurations are stored in .env for security and flexibility.
+
+- **Search Functionality:**
+
+    - Implements a debounced search when typing in the search input field.
+
+    - Supports search on submit button click for instant filtering.
+
+- **App Routing:** Utilizes Next.js App Router for optimized navigation.
+
+- **Pagination System:**
+
+    - Allows users to select the number of items per page.
+
+    - Supports page navigation using "Next" and "Previous" buttons.
+
+- **Component-based Architecture:**
+
+    - Code is modularized into reusable components.
+
+    - Utilizes custom hooks for managing and updating search parameters.
+
+- **State Management via URL SearchParams:**
+
+    - Search query, selected number of products per page, and the current page are stored in URL parameters.
+
+    - This ensures that the page state is restored upon refresh or when shared.
+
+## Installation
+
+1. Clone the repository:
+
+```
+git clone https://github.com/iyehorova/dashboard.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project folder:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd dashboard
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Install dependencies:
 
-## Learn More
+```
+npm install
+```
+4. Create a .env file and configure your API URL by copy .env.example:
 
-To learn more about Next.js, take a look at the following resources:
+```
+cp .env.example .env
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Update the values in the .env file.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+# example
+BASE_URL=https://api-endpoint.com
+```
 
-## Deploy on Vercel
+6. Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technologies Used
+
+- Next.js 15 (with SSR)
+
+- React
+
+- TypeScript
+
+- Custom Hooks
+
+- Environment Variables (.env)
+
+- Debounce for Search Optimization
+
