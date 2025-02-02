@@ -1,4 +1,5 @@
 export interface SearchParams {
-  page: string,
-  limit: string
+  page: string;
+  limit: string;
+  query: string;
 }

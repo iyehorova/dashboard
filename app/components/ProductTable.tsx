@@ -17,13 +17,13 @@ type Props = {
 
 export const ProductTable = ({ products }: Props) => {
   return (
-    <table className="font-inherit mt-[30px] w-full">
+    <table className="mt-[30px] w-full font-inherit">
       <thead>
         <tr className="h-[60px] bg-dark-grey text-white">
           {tableHeaders.map((header, i) => (
             <th
               key={i}
-              className="font-inherit border border-grey pl-0 text-center text-input-title font-normal capitalize xl:pl-[30px] xl:text-left"
+              className="border border-grey pl-0 text-center font-inherit text-input-title font-normal capitalize xl:pl-[30px] xl:text-left"
             >
               {header}
             </th>
@@ -32,9 +32,18 @@ export const ProductTable = ({ products }: Props) => {
       </thead>
 
       <tbody>
-        {products.map(product => (
-          <ProductItem product={product} key={product.Id} />
-        ))}
+        {products &&
+          products.map(product => (
+            <ProductItem product={product} key={product.Id} />
+          ))}
+
+        {!products && (
+          <tr>
+            <td colSpan={7} className="pt-4 text-center">
+              Nothing was found
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

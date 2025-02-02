@@ -31,6 +31,10 @@ export const Pagination = ({ paginationInfo }: Props) => {
     setSearchParams({ page: currentPage.toString() });
   }, [currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(START_PAGE);
+  }, [NumberOfPages]);
+
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -54,6 +58,8 @@ export const Pagination = ({ paginationInfo }: Props) => {
   const handleGetNextPage = () => {
     setCurrentPage(prev => (prev < NumberOfPages ? prev + 1 : NumberOfPages));
   };
+
+  if (!TotalItemsCount) return null;
 
   return (
     <form
@@ -96,7 +102,7 @@ export const Pagination = ({ paginationInfo }: Props) => {
 
           <input
             className="remove-arrow mx-[10px] h-[40px] w-[80px] rounded-[5px] border border-grey text-center disabled:bg-white"
-            id="items-per-page"
+            id="current-page"
             name="page"
             type="number"
             disabled

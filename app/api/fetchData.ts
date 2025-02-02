@@ -6,20 +6,22 @@ const convertToRecord = (params: SearchParams): Record<string, string> => {
   const record: Record<string, string> = {};
   if (params.page) record.page = params.page;
   if (params.limit) record.limit = params.limit;
+  if (params.query) record.query = params.query;
   return record;
 };
 
-const startParams: SearchParams = {
-  limit: '10',
-  page: '1',
-};
+// const startParams: SearchParams = {
+//   limit: '',
+//   page: '',
+//   query: ''
+// };
 
 export async function fetchData(params: SearchParams) {
-  let currentParams = params;
-  if (!params) {
-    currentParams = startParams;
-  }
-  const query = new URLSearchParams(convertToRecord(currentParams)).toString();
+  // let currentParams = params;
+  // // if (!params) {
+  // //   currentParams = startParams;
+  // // }
+  const query = new URLSearchParams(convertToRecord(params)).toString();
 
   const url = `${baseUrl}?prop_ModuleId=2053&${query}`;
 

@@ -6,12 +6,12 @@ import { Pagination } from '../components/Pagination';
 import { SearchParams } from '../interfaces/SearchParams';
 
 type Props = {
-  searchParams: Promise<SearchParams>
+  searchParams: Promise<SearchParams>;
 };
 
 export default async function ProductListPage({ searchParams }: Props) {
- const query = await searchParams;
- const serverData = await fetchData(query);
+  const query = await searchParams;
+  const serverData = await fetchData(query);
 
   return (
     <main className="mx-[30px] mb-[30px] mt-[24px] flex-1">
@@ -21,12 +21,14 @@ export default async function ProductListPage({ searchParams }: Props) {
         Review and manage the products available on the marketplace.
       </p>
 
-      <Searchbar />
+      <section className="relative pb-[104px]">
+        <Searchbar />
 
-      <Suspense fallback={null}>
-        <ProductTable products={serverData.Items} />
-        <Pagination paginationInfo={serverData.Pagination} />
-      </Suspense>
+        <Suspense fallback={null}>
+          <ProductTable products={serverData.Items} />
+          <Pagination paginationInfo={serverData.Pagination} />
+        </Suspense>
+      </section>
     </main>
   );
 }
